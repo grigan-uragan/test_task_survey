@@ -11,6 +11,21 @@
     <h4>Let's write message</h4>
     <div class="row">
         <a th:href="@{/admin}" class="btn btn-primary">For Admin</a>
+        <div class="col">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Survey name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="survey : ${surveyList}">
+                        <td><a th:href="@{/quiz/{id}(id = ${survey.id})}" th:text="${survey.name}"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>

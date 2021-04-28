@@ -17,4 +17,12 @@ public class SurveyService {
     public List<Survey>getSurveyList() {
         return surveyRepository.findAll();
     }
+
+    public void saveSurvey(Survey survey) {
+        surveyRepository.save(survey);
+    }
+
+    public void deleteSurvey(Survey survey) {
+        surveyRepository.delete(survey);
+    }
 }

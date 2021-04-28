@@ -23,8 +23,8 @@
                     <tr th:each="survey : ${surveyList}">
                         <td th:text="${survey.id}"></td>
                         <td th:text="${survey.name}"></td>
-                        <td><a class="btn btn-info" th:value="edit" th:href="@{/admin/edit/{id}(id = ${survey.id})}"></a></td>
-                        <td><a class="btn btn-warn" th:value="delete" th:href="@{/admin/delete/{id}(id = ${survey.id})}"></a></td>
+                        <td><a class="btn btn-primary" th:value="edit" th:href="@{/admin/edit/{id}(id = ${survey.id})}"></a></td>
+                        <td><a class="btn btn-primary" th:value="delete" th:href="@{/admin/delete/{id}(id = ${survey.id})}"></a></td>
                     </tr>
                 </tbody>
             </table>
@@ -32,7 +32,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <a class="bth btn-primary" th:value="add" th:href="@{/admin/edit}"></a>
+            <a class="btn btn-primary" th:text="add" th:href="@{/admin/edit}"></a>
         </div>
     </div>
 

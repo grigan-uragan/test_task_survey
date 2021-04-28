@@ -9,14 +9,13 @@
 <div layout:fragment="replace_fragment">
     <div class="row">
         <div class="col" th:object="${survey}">
-            <form th:action="@{/admin/save}">
+            <form th:action="@{/admin/save}" method="post">
                 <input type="text" name="name" th:field="*{name}">
-                <input type="text" name="name" th:field="*{}">
+                <input type="text" name="description" th:field="*{description}">
+                <button type="submit" class="btn btn-primary">Create</button>
             </form>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>
