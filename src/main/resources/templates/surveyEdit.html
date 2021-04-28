@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/index}">
+<head>
+    <title>Hello</title>
+</head>
+<body>
+<div layout:fragment="replace_fragment">
+    <div class="row">
+        <div class="col" th:object="${survey}">
+            <form th:action="@{/admin/save}">
+                <input type="text" name="name" th:field="*{name}">
+                <input type="text" name="name" th:field="*{}">
+            </form>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
