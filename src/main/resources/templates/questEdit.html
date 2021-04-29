@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/index}">
+<head>
+    <title>Hello</title>
+</head>
+<body>
+<div layout:fragment="replace_fragment">
+    <div class="row">
+        <div class="col" th:object="${question}">
+            <p>Write your question!</p>
+            <form method="post" th:action="@{/admin/addQuestion/{id}(id = ${question.survey.id})}">
+                <input type="text" th:field="*{text}" name="question" placeholder="your question">
+                <input type="text" th:field="*{type}" name="type" placeholder="type your question">
+                <input type="hidden" th:field="*{id}">
+                <button type="submit" name="submit">save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

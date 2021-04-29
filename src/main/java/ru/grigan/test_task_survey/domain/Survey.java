@@ -2,6 +2,7 @@ package ru.grigan.test_task_survey.domain;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -64,6 +65,13 @@ public class Survey {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void addQuestion(Question question) {
+        if (questions == null) {
+            questions = new HashSet<>();
+        }
+        questions.add(question);
     }
 
     @Override

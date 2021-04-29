@@ -10,7 +10,6 @@
     <h3>This My Simple Blog application!</h3>
     <h4>Let's write message</h4>
     <div class="row">
-        <a th:href="@{/admin}" class="btn btn-primary">For Admin</a>
         <div class="col">
             <table>
                 <thead>
@@ -27,7 +26,11 @@
             </table>
         </div>
     </div>
-
+<div class="row">
+    <div class="col">
+        <a th:href="@{/admin}" class="btn btn-primary">For Admin</a>
+    </div>
+</div>
 </div>
 </body>
 </html>
