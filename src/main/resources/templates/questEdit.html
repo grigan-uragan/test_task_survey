@@ -11,10 +11,12 @@
         <div class="col" th:object="${question}">
             <p>Write your question!</p>
             <form method="post" th:action="@{/admin/addQuestion/{id}(id = ${question.survey.id})}">
-                <input type="text" th:field="*{text}" name="question" placeholder="your question">
-                <input type="text" th:field="*{type}" name="type" placeholder="type your question">
+                <label for="question">Question</label>
+                <input id="question" class="form-control" type="text" th:field="*{text}" name="question" placeholder="your question">
+                <label for="type">Name</label>
+                <input id="type" class="form-control" type="text" th:field="*{type}" name="type" placeholder="type your question">
                 <input type="hidden" th:field="*{id}">
-                <button type="submit" name="submit">save</button>
+                <button class="btn btn-primary" type="submit" name="submit">save</button>
             </form>
         </div>
     </div>

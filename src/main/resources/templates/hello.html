@@ -7,30 +7,48 @@
 </head>
 <body>
 <div layout:fragment="replace_fragment">
-    <h3>This My Simple Blog application!</h3>
-    <h4>Let's write message</h4>
+    <h3>This My Simple Survey Form!</h3>
     <div class="row">
         <div class="col">
-            <table>
+            <table class="table">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Survey name</th>
-                    </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Survey name</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="survey : ${surveyList}">
-                        <td><a th:href="@{/quiz/{id}(id = ${survey.id})}" th:text="${survey.name}"></a></td>
-                    </tr>
+                <tr th:each="survey : ${surveyList}">
+                    <th scope="row" th:text="${survey.id}"></th>
+                    <td>
+                        <a th:href="@{/quiz/{id}(id = ${survey.id})}" th:text="${survey.name}"></a>
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
     </div>
-<div class="row">
-    <div class="col">
-        <a th:href="@{/admin}" class="btn btn-primary">For Admin</a>
+    <div class="row">
+        <div class="col">
+            <a th:href="@{/admin}" class="btn btn-primary">For Admin</a>
+        </div>
     </div>
-</div>
+    <div class="my-3">
+        <form th:action="@{/answers}" method="get">
+            <div class="row">
+                <div class="col">
+                    <input type="text" name="user_id" class="form-control">
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">get answer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
 </div>
 </body>
 </html>

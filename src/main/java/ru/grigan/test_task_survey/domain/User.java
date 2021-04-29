@@ -1,6 +1,7 @@
 package ru.grigan.test_task_survey.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +16,8 @@ public class User {
     @JoinTable(name = "user_survey", joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "survey_id")})
     private List<Survey> surveys;
+    @OneToMany(mappedBy = "user")
+    private List<Answer> answers;
 
     public Long getId() {
         return id;
@@ -38,6 +41,28 @@ public class User {
 
     public void setSurveys(List<Survey> surveys) {
         this.surveys = surveys;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public void addSurvey(Survey survey) {
+        if (surveys == null) {
+            surveys = new ArrayList<>();
+        }
+        surveys.add(survey);
+    }
+
+    public void addAnswers(Answer answer) {
+        if (answers == null) {
+            answers = new ArrayList<>();
+        }
+        answers.add(answer);
     }
 
     @Override

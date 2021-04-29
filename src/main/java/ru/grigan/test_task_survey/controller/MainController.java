@@ -4,7 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import ru.grigan.test_task_survey.domain.Answer;
 import ru.grigan.test_task_survey.domain.Survey;
+import ru.grigan.test_task_survey.domain.User;
 import ru.grigan.test_task_survey.service.SurveyService;
 
 import java.util.List;
@@ -25,9 +28,9 @@ public class MainController {
         return "hello";
     }
 
-    @GetMapping("/quiz/{id}")
-    public String getSurveyQuestion(@PathVariable("id") Survey survey, Model model) {
-        model.addAttribute("survey", survey);
-        return "questions";
+    @GetMapping("/answers")
+    public String showUserAnswers(@RequestParam("user_id") User user, Model model) {
+        model.addAttribute("user", user);
+        return "userAnswers";
     }
 }

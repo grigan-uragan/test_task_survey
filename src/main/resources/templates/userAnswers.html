@@ -12,27 +12,20 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">#</th>
                     <th scope="col">Question</th>
                     <th scope="col">Answer</th>
                 </tr>
                 </thead>
                 <tbody>
-                <form method="post" th:action="@{/quiz/{id}(id = ${user.id})}">
                     <div th:object="${user}">
                         <tr th:each="ans, i : ${user.getAnswers()}">
+                            <td><p th:text="${i.index + 1}"></p></td>
                             <td><p th:text="*{answers[__${i.index}__].questions.text}"></p></td>
-                            <td><input class="form-control" type="text" th:field="*{answers[__${i.index}__].answer}"></td>
-                            <input type="hidden" th:field="*{answers[__${i.index}__].questions}">
-                            <input type="hidden" th:field="*{answers[__${i.index}__].user}">
+                            <td><p th:text="*{answers[__${i.index}__].answer}"></p></td>
                         </tr>
                     </div>
 
-                    <tr>
-                        <td>
-                            <button type="submit" class="btn btn-primary">save</button>
-                        </td>
-                    </tr>
-                </form>
                 </tbody>
             </table>
         </div>

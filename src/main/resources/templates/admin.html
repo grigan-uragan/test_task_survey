@@ -10,21 +10,21 @@
     <h2>welcome to Admin page</h2>
     <div class="row">
         <div class="col">
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Survey name</th>
-                        <th>edit</th>
-                        <th>delete</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Survey name</th>
+                        <th scope="col">edit</th>
+                        <th scope="col">delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="survey : ${surveyList}">
                         <td th:text="${survey.id}"></td>
                         <td th:text="${survey.name}"></td>
-                        <td><a class="btn btn-primary" th:value="edit" th:href="@{/admin/edit/{id}(id = ${survey.id})}"></a></td>
-                        <td><a class="btn btn-primary" th:value="delete" th:href="@{/admin/delete/{id}(id = ${survey.id})}"></a></td>
+                        <td><a class="btn btn-primary"  th:href="@{/admin/edit/{id}(id = ${survey.id})}">Edit</a></td>
+                        <td><a class="btn btn-primary"  th:href="@{/admin/delete/{id}(id = ${survey.id})}">Delete</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -32,7 +32,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <a class="btn btn-primary" th:text="add" th:href="@{/admin/edit}"></a>
+            <a class="btn btn-primary" th:href="@{/admin/edit}">Add Survey</a>
         </div>
     </div>
 
